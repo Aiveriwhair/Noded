@@ -49,6 +49,49 @@ class Bezier3 {
 
         return res;
     }
+
+    printValues(tPoints: number){
+        for(let i = 0; i < tPoints; i++){
+            let t = i / tPoints;
+            let p = this.bezierAt(t);
+            console.log("t: " + t + " x: " + p.x + " y: " + p.y);
+        }
+    }
+
+    drawBezier(ctx: CanvasRenderingContext2D, tPoints: number){
+        this.checkPoints();
+
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        
+        for(let p of this.points){
+            ctx.strokeStyle = 'red';
+            let radius = 2;
+            ctx.beginPath();
+            ctx.arc(p!.x, p!.y, radius, 0, 2*Math.PI);
+            ctx.stroke();
+        }
+
+        ctx.strokeStyle = 'black';
+        ctx.moveTo(this.points[0]!.x, this.points[0]!.y);
+        for(let i = 0; i <= tPoints; i++){
+            let t = i / tPoints;
+            let p = this.bezierAt(t);
+            ctx.lineTo(p.x, p.y);
+        }
+        ctx.stroke();
+    }
+
+
+    checkPoints(){
+        for(let p of this.points){
+            if(p == null){
+                new Error("Bezier points cannot be null when computing coordinates");
+            }
+        }
+        return true;
+    }
 }
 
 export default Bezier3;

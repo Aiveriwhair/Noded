@@ -75,7 +75,7 @@ class Bezier4 {
 
         ctx.strokeStyle = 'black';
         ctx.moveTo(this.points[0]!.x, this.points[0]!.y);
-        for(let i = 0; i < tPoints; i++){
+        for(let i = 0; i <= tPoints; i++){
             let t = i / tPoints;
             let p = this.bezierAt(t);
             ctx.lineTo(p.x, p.y);
