@@ -1,3 +1,2 @@
-"use strict";
-exports.__esModule = true;
-var parentd = document.getElementsByClassName("GGraph")[0];
+import { bezierDrawTest } from './fc/Bezier/BezierTest.js';
+bezierDrawTest();
