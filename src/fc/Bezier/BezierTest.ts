@@ -43,8 +43,8 @@ export function bezier3DrawTest(){
     let bezier = new Bezier3();
 
     bezier.setPoint(0, {x:100, y:100});
-    bezier.setPoint(1, {x:200, y:200});
-    bezier.setPoint(2, {x:300, y:100});
+    bezier.setPoint(1, {x:800, y:600});
+    bezier.setPoint(2, {x:1000, y:200});
 
-    bezier.drawBezier(ctx, 50);
+    bezier.drawBezier(ctx, 1000);
 }

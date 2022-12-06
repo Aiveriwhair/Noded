@@ -63,24 +63,23 @@ class Bezier3 {
 
         ctx.beginPath();
         ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'red';
         
         for(let p of this.points){
-            ctx.strokeStyle = 'red';
-            let radius = 2;
+            let radius = 5;
             ctx.beginPath();
             ctx.arc(p!.x, p!.y, radius, 0, 2*Math.PI);
             ctx.stroke();
         }
 
-        ctx.strokeStyle = 'black';
         ctx.moveTo(this.points[0]!.x, this.points[0]!.y);
         for(let i = 0; i <= tPoints; i++){
             let t = i / tPoints;
             let p = this.bezierAt(t);
+            ctx.strokeStyle = 'black';
             ctx.lineTo(p.x, p.y);
+            ctx.stroke();
         }
-        ctx.stroke();
     }
 
 

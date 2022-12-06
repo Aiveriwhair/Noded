@@ -1,2 +1,2 @@
-import { bezier4DrawTest } from './fc/Bezier/BezierTest.js';
-bezier4DrawTest();
+import { bezier3DrawTest } from './fc/Bezier/BezierTest.js';
+bezier3DrawTest();

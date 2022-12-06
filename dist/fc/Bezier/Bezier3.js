@@ -48,23 +48,22 @@ var Bezier3 = /** @class */ (function () {
         this.checkPoints();
         ctx.beginPath();
         ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'red';
         for (var _i = 0, _a = this.points; _i < _a.length; _i++) {
             var p = _a[_i];
-            ctx.strokeStyle = 'red';
-            var radius = 2;
+            var radius = 5;
             ctx.beginPath();
             ctx.arc(p.x, p.y, radius, 0, 2 * Math.PI);
             ctx.stroke();
         }
-        ctx.strokeStyle = 'black';
         ctx.moveTo(this.points[0].x, this.points[0].y);
         for (var i = 0; i <= tPoints; i++) {
             var t = i / tPoints;
             var p = this.bezierAt(t);
+            ctx.strokeStyle = 'black';
             ctx.lineTo(p.x, p.y);
+            ctx.stroke();
         }
-        ctx.stroke();
     };
     Bezier3.prototype.checkPoints = function () {
         for (var _i = 0, _a = this.points; _i < _a.length; _i++) {
